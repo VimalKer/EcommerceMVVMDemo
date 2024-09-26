@@ -8,22 +8,19 @@
 import UIKit
 
 class TabBarVC: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let homeVC = mainStoryboard.instantiateViewController(withIdentifier: screenIdentifier.HomeVC.Identifier())
+        let productVC = mainStoryboard.instantiateViewController(withIdentifier: screenIdentifier.ProductListVC.Identifier())
+        let categoryVC = mainStoryboard.instantiateViewController(withIdentifier: screenIdentifier.CategoryListVC.Identifier())
+        let usersVC = mainStoryboard.instantiateViewController(withIdentifier: screenIdentifier.UsersListVC.Identifier())
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: mytabBarIcon.Home.defaultImage,selectedImage: mytabBarIcon.Home.selectedImage)
+        productVC.tabBarItem = UITabBarItem(title: "Product", image: mytabBarIcon.Product.defaultImage,selectedImage: mytabBarIcon.Product.selectedImage)
+        productVC.tabBarItem = UITabBarItem(title: "Category", image: mytabBarIcon.Category.defaultImage,selectedImage: mytabBarIcon.Category.selectedImage)
+        productVC.tabBarItem = UITabBarItem(title: "Users", image: mytabBarIcon.Users.defaultImage,selectedImage: mytabBarIcon.Users.selectedImage)
+        let controllers = [homeVC,productVC,categoryVC,usersVC]
+        self.viewControllers = controllers
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

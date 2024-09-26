@@ -9,9 +9,11 @@ import UIKit
 
 class ProductListVC: UIViewController {
 
+    var productViewModel = ProductViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      
+        productViewModel.fetchProductData()
     }
 }

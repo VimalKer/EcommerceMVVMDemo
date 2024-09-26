@@ -6,3 +6,79 @@
 //
 
 import Foundation
+import UIKit
+
+enum screenIdentifier: String{
+    case HomeVC , ProductListVC, CarListVC, UsersListVC ,LoginVC , SignUpVC ,CategoryListVC
+    func Identifier() -> String {
+        switch self {
+        case .HomeVC:
+            return "HomeVC"
+        case .ProductListVC:
+            return "ProductListVC"
+        case .CarListVC:
+            return "CarListVC"
+        case .UsersListVC:
+            return "UsersListVC"
+        case .LoginVC:
+            return "LoginVC"
+        case .SignUpVC:
+            return "SignUpVC"
+        case .CategoryListVC:
+            return "CategoryListVC"
+        }
+    }
+}
+
+//MARK: - tabBarIcon
+enum mytabBarIcon{
+    case Home
+    case Product
+    case Category
+    case Users
+
+    var selectedImage: UIImage {
+        switch self {
+            case .Home: return UIImage(named: "Home_s")!
+            case .Product: return UIImage(named: "Product_s")!
+            case .Category: return UIImage(named: "Category_s")!
+            case .Users: return UIImage(named: "Users_s")!
+        }
+    }
+    var defaultImage: UIImage {
+        switch self {
+            case .Home: return UIImage(named: "Home")!
+            case .Product: return UIImage(named: "Product")!
+            case .Category: return UIImage(named: "Category")!
+            case .Users: return UIImage(named: "Users")!
+        }
+    }
+}
+
+
+enum moduleIdentifier: String{
+    case auth , products, carts, recipes ,users , posts ,comments, todos ,quotes
+    func key() -> String {
+        switch self {
+        case .auth:
+            return "auth"
+        case .products:
+            return "products"
+        case .carts:
+            return "carts"
+        case .recipes:
+            return "recipes"
+        case .users:
+            return "users"
+        case .posts:
+            return "posts"
+        case .comments:
+            return "comments"
+        case .todos:
+            return "todos"
+        case .quotes:
+            return "quotes"
+        }
+        
+    }
+}
