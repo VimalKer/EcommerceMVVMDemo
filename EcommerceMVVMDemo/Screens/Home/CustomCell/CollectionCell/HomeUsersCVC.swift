@@ -19,7 +19,7 @@ class HomeUsersCVC: UICollectionViewCell {
         didSet{
             
             self.imgUser.loadingImages(url: URL(string: (Users?.image)!)!)
-            self.lblUserName.text = "\(String(describing: Users?.firstName)) \(String(describing: Users?.lastName))"
+            self.lblUserName.text = "\(Users!.firstName!) \(Users!.lastName!)" 
             self.lblphone.text   =  Users?.phone
             self.lblCity.text   =  Users?.address?.city
             self.lblBloodGroup.text = Users?.bloodGroup

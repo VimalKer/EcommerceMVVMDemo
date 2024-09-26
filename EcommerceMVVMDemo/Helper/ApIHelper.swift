@@ -40,22 +40,15 @@ class ApIHelper{
             }
             do{
                 guard let data = (try JSONSerialization.jsonObject(with: request.data!) as? [String: Any]),
-                      let _ = data[moduleIdentifier] as? [[String: Any]] else {
+                      let newdata = data[moduleIdentifier] as? [[String: Any]] else {
                     print("Error productData Data")
                     completion(.failure(.invalidData))
                     return
                 }
-                let arrProduct  =  try JSONDecoder().decode(modelType.self, from: request.data!)
-                // print(arrProduct)
                 
-                //                if let json = try JSONSerialization.jsonObject(with: request.data!) as? [String: Any],
-                //                   let results = json["products"] as? [[String: Any]] {
-                //                    for result in results {
-                //                        print(result)
-                //                    }
-                //                    print(results)
-                //                }
-                completion(.success(arrProduct))
+                let convertedData = try! JSONSerialization.data(withJSONObject: newdata)
+                let arrData  =  try JSONDecoder().decode(modelType.self, from: convertedData)
+                completion(.success(arrData))
             }catch{
                 completion(.failure(.message(error)))
             }
@@ -64,7 +57,15 @@ class ApIHelper{
     }
     
     func postApicallingAlamofire(
+        // print(arrProduct)
         
+        //                if let json = try JSONSerialization.jsonObject(with: request.data!) as? [String: Any],
+        //                   let results = json["products"] as? [[String: Any]] {
+        //                    for result in results {
+        //                        print(result)
+        //                    }
+        //                    print(results)
+        //                }
     ){
         
     }

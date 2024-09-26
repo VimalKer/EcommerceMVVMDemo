@@ -11,6 +11,7 @@ class HomeVC: UIViewController {
     
     //MARK: - IBOutlet Declaration
     @IBOutlet weak var tblProduct                : UITableView!
+    @IBOutlet weak var tblProductHeight                : NSLayoutConstraint!
     @IBOutlet weak var collectionUsers           : UICollectionView!
     
     //MARK: - Varriable Declaration
@@ -19,7 +20,6 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         config()
     }
 }
@@ -37,7 +37,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     }
 }
 //MARK: - UICollectionViewDelegate UICollectionViewDataSource
-extension HomeVC:UICollectionViewDelegate,UICollectionViewDataSource{
+extension HomeVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.usersViewModel.arrUsersDataModel.count
     }
@@ -45,22 +45,32 @@ extension HomeVC:UICollectionViewDelegate,UICollectionViewDataSource{
         guard let cell = collectionUsers.dequeueReusableCell(withReuseIdentifier: "HomeUsersCVC", for: indexPath)as! HomeUsersCVC? else {
           fatalError()
         }
+        cell.Users = usersViewModel.arrUsersDataModel[indexPath.row]
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionUsers.frame.size.width) / 2.0 - 4, height: (collectionUsers.frame.size.width) / 1.8 - 8)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 4
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
     }
 }
 //MARK: - Config Methods
 extension HomeVC{
     
     func config(){
-        self.tblProduct.register(UINib(nibName: "HomeProductTVC", bundle: nil), forCellReuseIdentifier: "HomeProductTVC")
         self.collectionUsers.register(UINib(nibName: "HomeUsersCVC", bundle: nil), forCellWithReuseIdentifier: "HomeUsersCVC")
+        self.tblProduct.register(UINib(nibName: "HomeProductTVC", bundle: nil), forCellReuseIdentifier: "HomeProductTVC")
         self.initViewModel()
-        self.observeProductEvent()
         self.observeUsersEvent()
+        self.observeProductEvent()
     }
     func initViewModel(){
-        self.productViewModel.fetchProductData()
         self.usersViewModel.fetchuserData()
+        self.productViewModel.fetchProductData()
     }
     func observeProductEvent(){
         productViewModel.eventHandler = { [weak self] event in

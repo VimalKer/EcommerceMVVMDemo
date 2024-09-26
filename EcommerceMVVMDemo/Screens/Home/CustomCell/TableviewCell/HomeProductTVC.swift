@@ -17,7 +17,7 @@ class HomeProductTVC: UITableViewCell {
     var Product:ProductDataModel?{
         didSet{
             self.lblTitle.text =  Product?.title
-            self.lblCost.text  = "\(String(describing: Product?.price))"
+            self.lblCost.text  = "\(String(describing: Product!.price!))"
             self.lblCategory.text   = Product?.category
             self.lblThumnailmages.loadingImages(url: URL(string: (Product?.thumbnail)!)!)
         }

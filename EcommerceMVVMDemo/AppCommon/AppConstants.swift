@@ -55,7 +55,6 @@ enum mytabBarIcon{
     }
 }
 
-
 enum moduleIdentifier: String{
     case auth , products, carts, recipes ,users , posts ,comments, todos ,quotes
     func key() -> String {
@@ -79,6 +78,36 @@ enum moduleIdentifier: String{
         case .quotes:
             return "quotes"
         }
-        
+    }
+}
+
+class UserDetails:NSObject{
+    
+    private override init(){}
+    
+    static var userId:String{
+        get{
+            UserDefaults.standard.value(forKey: "userId")as? String ?? ""
+        }
+        set{
+            UserDefaults.standard.setValue(newValue, forKey: "userId")
+        }
+    }
+    
+    static var IS_LOGIN: Bool{
+        get{
+            UserDefaults.standard.value(forKey: "IS_LOGIN")as? Bool ?? false
+        }
+        set{
+            UserDefaults.standard.setValue(newValue, forKey: "IS_LOGIN")
+        }
+    }
+    static var IS_ADMIN : Bool{
+        get{
+            UserDefaults.standard.value(forKey: "IS_ADMIN")as? Bool ?? false
+        }
+        set{
+            UserDefaults.standard.setValue(newValue, forKey: "IS_ADMIN")
+        }
     }
 }

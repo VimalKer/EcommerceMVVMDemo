@@ -21,23 +21,23 @@ struct ProductDataModel : Decodable{
     let tags:[String]?
     let brand:String?
     let sku:String?
-    let weight:String?
+    let weight:Int?
     let dimensions: Dimensions?
     let warrantyInformation:String?
     let shippingInformation:String?
     let availabilityStatus:String?
     let reviews: [Reviews]?
     let returnPolicy:String?
-    let minimumOrderQuantity:String?
+    let minimumOrderQuantity:Int?
     let meta:Meta?
     let images:[String]?
     let thumbnail:String?
 }
 struct Dimensions:Decodable{
     
-    let width:String?
-    let height:String?
-    let depth:String?
+    let width:Double?
+    let height:Double?
+    let depth:Double?
 }
 struct Reviews:Decodable{
     

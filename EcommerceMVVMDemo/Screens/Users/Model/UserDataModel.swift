@@ -45,7 +45,7 @@ struct Hair:Decodable{
 }
 struct Address:Decodable{
     var address,city,state,stateCode,postalCode:String?
-    var coordinates:String?
+    var coordinates:Coordinates?
     var country:String?
 }
 struct Coordinates:Decodable{

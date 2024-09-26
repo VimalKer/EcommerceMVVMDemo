@@ -9,7 +9,7 @@ import Foundation
 
 final class ProductViewModel{
     
-    var arrProductModel:[ProductDataModel] = []
+    var arrProductModel = [ProductDataModel]()
     var eventHandler:((_ event: Events) -> Void)?
     
     //MARK: - FetchProductData
