@@ -14,6 +14,7 @@ import Alamofire
 //    case post = "POST"
 //}
 
+
 protocol EndpointType{
     var baseURL: String { get }
     var path: String { get }

@@ -13,5 +13,4 @@ class ProductListCVC: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
 }

@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUY-7P-IlF">
                         <rect key="frame" x="4" y="4" width="367" height="113"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZmL-BW-NIS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZmL-BW-NIS" customClass="CustomImageview" customModule="EcommerceMVVMDemo" customModuleProvider="target">
                                 <rect key="frame" x="16" y="31.666666666666664" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZmL-BW-NIS" secondAttribute="height" multiplier="1:1" id="uwj-lg-pYp"/>
@@ -85,6 +85,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblCategory" destination="Zr8-e7-O1T" id="Vdh-v9-NtE"/>
+                <outlet property="lblCost" destination="IL5-6r-UEi" id="U8t-KW-7dA"/>
+                <outlet property="lblThumnailmages" destination="ZmL-BW-NIS" id="ar9-p0-yhY"/>
+                <outlet property="lblTitle" destination="DNu-3b-j9F" id="YHB-UO-jqd"/>
+            </connections>
             <point key="canvasLocation" x="-64.122137404580144" y="15.845070422535212"/>
         </tableViewCell>
     </objects>
